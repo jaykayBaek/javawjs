@@ -40,7 +40,7 @@
     </div>
     <div>
       취미 : 
-          <input type="checkbox" name="hobby" value="등산">등산
+          <input type="checkbox" name="hobby" value="등산" checked>등산
           <input type="checkbox" name="hobby" value="낚시">낚시
           <input type="checkbox" name="hobby" value="독서">독서
           <input type="checkbox" name="hobby" value="음악감상">음악감상
