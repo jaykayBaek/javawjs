@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +30,8 @@
 <div class="container">
   <h2>값 전송하기(get방식)</h2>
   <!-- <form name="myform" method="get" action="../../atom/t7"> -->
-  <form name="myform" method="post" action="../../test11Ok">
+  <!-- <form name="myform" method="post" action="../../test11Ok"> -->
+  <form name="myform" method="post" action="test11Ok.jsp">
     성명 : <input type="text" name="name" value="Hong Kil Dong" class="form-control"/>
     나이 : <input type="number" name="age" value="25" class="form-control"/>
     <div>
