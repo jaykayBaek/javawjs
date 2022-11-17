@@ -1,4 +1,4 @@
-<%@page import="j1116.Test2VO"%>
+<%@page import="study.j1116.Test2VO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	/* test2_4에서 request 모델에 저장한 vo변수를 불러온다. vo변수에는 Test2VO객체가 있다.*/
