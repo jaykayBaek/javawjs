@@ -34,7 +34,7 @@ public class H1117_LogCheck extends HttpServlet{
 			Cookie cookie = new Cookie("cEmail", email);
 			switch (sw) {
 				case 1:
-					cookie.setPath("/");
+					cookie.setPath("/");		//전체경로에서 사용하고자 할 때 설정. board에서 사용할거면 /board로
 					cookie.setMaxAge(60*5);		// 쿠키의 만료시간을 5분으로 설정
 					response.addCookie(cookie);
 					break;
