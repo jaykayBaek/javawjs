@@ -11,6 +11,7 @@
 		'use strict'
 		let msg = "${msg}";
 		let url = "${url}";
+		let val = "${val}"
 		
 		if(msg=="guInputOk"){
 			msg = "방명록에 글이 등록되었습니다.";
@@ -29,6 +30,15 @@
 		}
 		else if(msg=="guDeleteOk"){
 			msg = "삭제완료되었습니다.";
+		}
+		else if(msg=="loginOk"){
+			msg = val+"님 로그인 성공.";
+		}
+		else if(msg=="loginNo"){
+			msg = "로그인 실패.";
+		}
+		else if(msg=="memLogoutOk"){
+			msg = val+"님 로그아웃 되었습니다.";
 		}
 		
 		alert(msg);
