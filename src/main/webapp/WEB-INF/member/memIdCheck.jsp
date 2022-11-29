@@ -26,7 +26,9 @@
     
     function sendCheck() {
     	opener.window.document.myform.mid.value = '${mid}';
-    	opener.window.document.myform.pwd.focus();    	
+    	// opener.window.document.myform.mid.disabled = true;
+    	opener.window.document.myform.mid.readOnly = true;
+    	opener.window.document.myform.pwd.focus();
     	window.close();
     }
   </script>

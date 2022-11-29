@@ -30,6 +30,6 @@ desc member;
 
 INSERT INTO member VALUES (
 default, 'admin', '1234', '관리자', '관리자', default, default,
-'010-5011-3162', '청주시 봉명동', 'jaykaybaek@gmail.com', 'http://jayitworld.blogspot',
+'010-5011-3162', '청주시 봉명동', 'jaykaybaek@gmail.com', 'http://jayitnote.blogspot',
 '학생', '등산/독서', default, '안녕하세요!', default, default, default,default,default,default,default,default
 );

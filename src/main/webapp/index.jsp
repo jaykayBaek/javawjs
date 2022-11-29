@@ -16,6 +16,9 @@
 	    height: 200px;
 	    background: #aaa;
 	  }
+	  div{
+	  
+	  }
 	  body{
 	  	font-family: 'Nanum Gothic', sans-serif;
 	  }

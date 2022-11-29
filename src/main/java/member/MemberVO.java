@@ -24,6 +24,7 @@ public class MemberVO {
 	private String startDate;
 	private String lastDate;
 	private int todayCnt;
+	
 	public int getIdx() {
 		return idx;
 	}
@@ -165,12 +166,9 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [idx=" + idx + ", mid=" + mid + ", pwd=" + pwd + ", nickName=" + nickName + ", name=" + name
-				+ ", gender=" + gender + ", birthday=" + birthday + ", tel=" + tel + ", address=" + address + ", email="
-				+ email + ", homePage=" + homePage + ", job=" + job + ", hobby=" + hobby + ", photo=" + photo
-				+ ", content=" + content + ", userInfor=" + userInfor + ", userDel=" + userDel + ", point=" + point
-				+ ", level=" + level + ", visitCnt=" + visitCnt + ", startDate=" + startDate + ", lastDate=" + lastDate
-				+ ", todayCnt=" + todayCnt + "]";
+				+ ", gender=" + gender + ", birthday=" + birthday + ", tel=" + tel + ", address=" + address + ", email=" + email
+				+ ", homePage=" + homePage + ", job=" + job + ", hobby=" + hobby + ", photo=" + photo + ", content=" + content
+				+ ", userInfor=" + userInfor + ", userDel=" + userDel + ", point=" + point + ", level=" + level + ", visitCnt="
+				+ visitCnt + ", startDate=" + startDate + ", lastDate=" + lastDate + ", todayCnt=" + todayCnt + "]";
 	}
-	
-	
 }

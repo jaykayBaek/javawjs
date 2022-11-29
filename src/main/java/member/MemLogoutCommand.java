@@ -13,10 +13,13 @@ public class MemLogoutCommand implements MemberInterface {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		
-		String nickName = "" + session.getAttribute("sNickName");
+		String nickName = (String) session.getAttribute("sNickName");
+		
 		session.invalidate();
+		
 		request.setAttribute("msg", "memLogoutOk");
 		request.setAttribute("url", request.getContextPath()+"/memLogin.mem");
 		request.setAttribute("val", nickName);
 	}
+
 }
