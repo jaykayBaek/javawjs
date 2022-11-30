@@ -31,13 +31,13 @@
       let submitFlag = 0;		// 전송체크버튼으로 값이 1이면 체크완료되어 전송처리한다.
 
       // 유효성검사를 위해 폼안의 내용들을 모두 변수에 담는다.
-	  let mid = myform.mid.value;
-	  let pwd = myform.pwd.value;
-	  let nickName = myform.nickName.value;
-	  let name = myform.name.value;
-	  let email1 = myform.email1.value;
-	  let email2 = myform.email2.value;
-	  let email = email1 + '@' + email2;
+    	let mid = myform.mid.value;
+    	let pwd = myform.pwd.value;
+    	let nickName = myform.nickName.value;
+    	let name = myform.name.value;
+    	let email1 = myform.email1.value;
+    	let email2 = myform.email2.value;
+      let email = email1 + '@' + email2;
       let homePage = myform.homePage.value;
       let tel1 = myform.tel1.value;
       let tel2 = myform.tel2.value;
@@ -215,19 +215,19 @@
     </div>
     <div class="form-group">
       <label for="email1">Email address:</label>
-		<div class="input-group mb-3">
-		  <input type="text" class="form-control" placeholder="Email을 입력하세요." id="email1" name="email1" required />
-		  <div class="input-group-append">
-		    <select name="email2" class="custom-select">
-			    <option value="naver.com" selected>naver.com</option>
-			    <option value="hanmail.net">hanmail.net</option>
-			    <option value="hotmail.com">hotmail.com</option>
-			    <option value="gmail.com">gmail.com</option>
-			    <option value="nate.com">nate.com</option>
-			    <option value="yahoo.com">yahoo.com</option>
-			  </select>
-		  </div>
-		</div>
+				<div class="input-group mb-3">
+				  <input type="text" class="form-control" placeholder="Email을 입력하세요." id="email1" name="email1" required />
+				  <div class="input-group-append">
+				    <select name="email2" class="custom-select">
+					    <option value="naver.com" selected>naver.com</option>
+					    <option value="hanmail.net">hanmail.net</option>
+					    <option value="hotmail.com">hotmail.com</option>
+					    <option value="gmail.com">gmail.com</option>
+					    <option value="nate.com">nate.com</option>
+					    <option value="yahoo.com">yahoo.com</option>
+					  </select>
+				  </div>
+				</div>
 	  </div>
     <div class="form-group">
       <div class="form-check-inline">
@@ -250,20 +250,20 @@
       <div class="input-group mb-3">
 	      <div class="input-group-prepend">
 	        <span class="input-group-text">전화번호 :</span> &nbsp;&nbsp;
-		      <select name="tel1" class="custom-select">
-			    <option value="010" selected>010</option>
-			    <option value="02">서울</option>
-			    <option value="031">경기</option>
-			    <option value="032">인천</option>
-			    <option value="041">충남</option>
-			    <option value="042">대전</option>
-			    <option value="043">충북</option>
-		        <option value="051">부산</option>
-		        <option value="052">울산</option>
-		        <option value="061">전북</option>
-		        <option value="062">광주</option>
-			  </select>
-	      	</div>
+			      <select name="tel1" class="custom-select">
+					    <option value="010" selected>010</option>
+					    <option value="02">서울</option>
+					    <option value="031">경기</option>
+					    <option value="032">인천</option>
+					    <option value="041">충남</option>
+					    <option value="042">대전</option>
+					    <option value="043">충북</option>
+			        <option value="051">부산</option>
+			        <option value="052">울산</option>
+			        <option value="061">전북</option>
+			        <option value="062">광주</option>
+					  </select>-
+	      </div>
 	      <input type="text" name="tel2" size=4 maxlength=4 class="form-control"/>-
 	      <input type="text" name="tel3" size=4 maxlength=4 class="form-control"/>
 	    </div> 
@@ -306,45 +306,45 @@
     <div class="form-group">
       <div class="form-check-inline">
         <span class="input-group-text">취미</span> &nbsp; &nbsp;
-		  <label class="form-check-label">
-		    <input type="checkbox" class="form-check-input" value="등산" name="hobby"/>등산
-		  </label>
-		</div>
-		<div class="form-check-inline">
-		  <label class="form-check-label">
-		    <input type="checkbox" class="form-check-input" value="낚시" name="hobby"/>낚시
-		  </label>
-		</div>
-		<div class="form-check-inline">
-		  <label class="form-check-label">
-		    <input type="checkbox" class="form-check-input" value="수영" name="hobby"/>수영
-		  </label>
-		</div>
-		<div class="form-check-inline">
-		  <label class="form-check-label">
-		    <input type="checkbox" class="form-check-input" value="독서" name="hobby"/>독서
-		  </label>
-		</div>
-		<div class="form-check-inline">
-		  <label class="form-check-label">
-		    <input type="checkbox" class="form-check-input" value="영화감상" name="hobby"/>영화감상
-		  </label>
-		</div>
-		<div class="form-check-inline">
-		  <label class="form-check-label">
-		    <input type="checkbox" class="form-check-input" value="바둑" name="hobby"/>바둑
-		  </label>
-		</div>
-		<div class="form-check-inline">
-		  <label class="form-check-label">
-		    <input type="checkbox" class="form-check-input" value="축구" name="hobby"/>축구
-		  </label>
-		</div>
-		<div class="form-check-inline">
-		  <label class="form-check-label">
-		    <input type="checkbox" class="form-check-input" value="기타" name="hobby" checked/>기타
-		  </label>
-		</div>
+			  <label class="form-check-label">
+			    <input type="checkbox" class="form-check-input" value="등산" name="hobby"/>등산
+			  </label>
+			</div>
+			<div class="form-check-inline">
+			  <label class="form-check-label">
+			    <input type="checkbox" class="form-check-input" value="낚시" name="hobby"/>낚시
+			  </label>
+			</div>
+			<div class="form-check-inline">
+			  <label class="form-check-label">
+			    <input type="checkbox" class="form-check-input" value="수영" name="hobby"/>수영
+			  </label>
+			</div>
+			<div class="form-check-inline">
+			  <label class="form-check-label">
+			    <input type="checkbox" class="form-check-input" value="독서" name="hobby"/>독서
+			  </label>
+			</div>
+			<div class="form-check-inline">
+			  <label class="form-check-label">
+			    <input type="checkbox" class="form-check-input" value="영화감상" name="hobby"/>영화감상
+			  </label>
+			</div>
+			<div class="form-check-inline">
+			  <label class="form-check-label">
+			    <input type="checkbox" class="form-check-input" value="바둑" name="hobby"/>바둑
+			  </label>
+			</div>
+			<div class="form-check-inline">
+			  <label class="form-check-label">
+			    <input type="checkbox" class="form-check-input" value="축구" name="hobby"/>축구
+			  </label>
+			</div>
+			<div class="form-check-inline">
+			  <label class="form-check-label">
+			    <input type="checkbox" class="form-check-input" value="기타" name="hobby" checked/>기타
+			  </label>
+			</div>
     </div>
     <div class="form-group">
       <label for="content">자기소개</label>

@@ -1,4 +1,4 @@
-package member;
+package admin;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,17 +8,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import guest.GuestDAO;
-import guest.GuestVO;
+import member.MemberDAO;
+import member.MemberVO;
 
-public class MemListCommand implements MemberInterface {
+public class AdMemListCommand implements AdminInterface {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		int level = (int) session.getAttribute("sLevel");
-		
-		MemberDAO dao = new MemberDAO();
+		AdminDAO dao = new AdminDAO();
 		
 		// 페이징처리 준비 시작
 		int pag = request.getParameter("pag")==null ? 1 : Integer.parseInt(request.getParameter("pag"));
@@ -33,7 +31,7 @@ public class MemListCommand implements MemberInterface {
 		int curBlock = (pag - 1) / blockSize;
 		int lastBlock = (totPage - 1) / blockSize;
 		
-		ArrayList<MemberVO> vos = dao.getMemList(startIndexNo, pageSize, level);
+		ArrayList<MemberVO> vos = dao.getMemList(startIndexNo, pageSize);
 		
 		request.setAttribute("vos", vos);
 		request.setAttribute("pag", pag);
