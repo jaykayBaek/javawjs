@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import board.BoardVO;
 import conn.GetConn;
 
 public class MemberDAO {
@@ -339,6 +340,8 @@ public class MemberDAO {
 			getConn.pstmtClose();
 		}
 	}
+
+
 	
 	
 }

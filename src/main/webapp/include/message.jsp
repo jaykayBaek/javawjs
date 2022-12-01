@@ -35,6 +35,8 @@
     else if(msg == "memUpdateNo") msg = "회원정보 변경 실패";
     else if(msg == "levelCheckOk") msg = "회원 등급 변경 처리되었습니다.";
     else if(msg == "memberDelOk") msg = "정상적으로 회원탈퇴 되었습니다.";
+    else if(msg == "boInputOk") msg = "게시글이 입력되었습니다.";
+    else if(msg == "boInputNo") msg = "게시글 입력이 취소되었습니다.";
     
     alert(msg);
     if(url != "") location.href = url;

@@ -26,7 +26,6 @@
     
     function idCheck2() {
     	let mid = $("#mid").val();
-    	
     	if(mid.trim() == "") {
     		alert("아이디를 입력하세요.");
     		$("#mid").focus();
@@ -127,37 +126,10 @@
     		data : {mid: mid},
     		success: function(res) {
     			$("#demo").html(res);
+    			//json 형식으로 넘어온 자료를 다시 파싱과정ㅇ르 거쳐서 일반 문자열로 변환시켜준다.
     			let jsonRes = JSON.parse(res);
     			
-    			$("#tMid").html(jsonRes.mid);
-    			$("#name").html(jsonRes.name);
-    			$("#nickName").html(jsonRes.nickName);
-    			$("#gender").html(jsonRes.gender);
-    			$("#point").html(jsonRes.point);
-    		},
-    		error: function() {
-    			alert("전송 실패~~~");
-    		} 
-    	});
-    }
-    
-    function idCheck6() {
-    	let mid = $("#mid").val();
-    	
-    	if(mid.trim() == "") {
-    		alert("아이디를 입력하세요.");
-    		$("#mid").focus();
-    		return false;
-    	}
-    	
-    	$.ajax({
-    		type : "post",
-    		url  : "${ctp}/idSearchTest6",
-    		data : {mid: mid},
-    		success: function(res) {
-    			$("#demo").html(res);
-    			let jsonRes = JSON.parse(res);
-    			
+    			// 파싱시켜 놓은 변수의 키? <jsonRes.mid>가 해당.
     			$("#tMid").html(jsonRes.mid);
     			$("#name").html(jsonRes.name);
     			$("#nickName").html(jsonRes.nickName);
@@ -182,9 +154,8 @@
     <input type="button" value="아이디일반검색1" onclick="idCheck()" class="btn btn-info"/>&nbsp;
     <input type="button" value="아이디검색2" onclick="idCheck2()" class="btn btn-success"/>&nbsp;
     <input type="button" value="아이디검색3" onclick="idCheck3()" class="btn btn-primary"/>&nbsp;
-    <input type="button" value="아이디검색4" onclick="idCheck4()" class="btn btn-secondary"/>&nbsp;
-    <input type="button" value="아이디검색5" onclick="idCheck5()" class="btn btn-warning"/>&nbsp;
-    <input type="button" value="아이디검색6" onclick="idCheck6()" class="btn btn-danger"/>
+    <input type="button" value="아이디검색4" onclick="idCheck4()" class="btn btn-primary"/>&nbsp;
+    <input type="button" value="아이디검색5" onclick="idCheck5()" class="btn btn-primary"/>
     <br/>
     <div>출력결과 : <span id="demo">${name}</span></div>
     <hr/>
