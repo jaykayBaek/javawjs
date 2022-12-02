@@ -2,31 +2,37 @@ package board;
 
 public class BoardVO {
 	private int idx;
-	private String memberNickName;
+	private String nickName;
 	private String title;
 	private String email;
 	private String homePage;
 	private String content;
-	private String dateUpdated;
+	private String wDate;
 	private String hostIp;
-	private int views;
-	private int likes;
-	private String memberMid;
+	private int readNum;
+	private int good;
+	private String mid;
 	
-	/* -------------- DB 설계로 생성된 필드 ------------- */
-	private int day_diff; // 날짜차이계산필드(1일차이 계산필드)
-	private int hour_diff;
+	private int day_diff;		// 날짜 차이 계산 필드(1일차이 계산필드)
+	private int hour_diff;	// 날짜 차이 계산 필드(24시간차이 계산필드)
+	
+	// 이전글/다음글을 위한 변수 설정
+	private int preIdx;
+	private int nextIdx;
+	private String preTitle;
+	private String nextTitle;
+	
 	public int getIdx() {
 		return idx;
 	}
 	public void setIdx(int idx) {
 		this.idx = idx;
 	}
-	public String getMemberNickName() {
-		return memberNickName;
+	public String getNickName() {
+		return nickName;
 	}
-	public void setMemberNickName(String memberNickName) {
-		this.memberNickName = memberNickName;
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
 	}
 	public String getTitle() {
 		return title;
@@ -52,11 +58,11 @@ public class BoardVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getDateUpdated() {
-		return dateUpdated;
+	public String getwDate() {
+		return wDate;
 	}
-	public void setDateUpdated(String dateUpdated) {
-		this.dateUpdated = dateUpdated;
+	public void setwDate(String wDate) {
+		this.wDate = wDate;
 	}
 	public String getHostIp() {
 		return hostIp;
@@ -64,23 +70,23 @@ public class BoardVO {
 	public void setHostIp(String hostIp) {
 		this.hostIp = hostIp;
 	}
-	public int getViews() {
-		return views;
+	public int getReadNum() {
+		return readNum;
 	}
-	public void setViews(int views) {
-		this.views = views;
+	public void setReadNum(int readNum) {
+		this.readNum = readNum;
 	}
-	public int getLikes() {
-		return likes;
+	public int getGood() {
+		return good;
 	}
-	public void setLikes(int likes) {
-		this.likes = likes;
+	public void setGood(int good) {
+		this.good = good;
 	}
-	public String getMemberMid() {
-		return memberMid;
+	public String getMid() {
+		return mid;
 	}
-	public void setMemberMid(String memberMid) {
-		this.memberMid = memberMid;
+	public void setMid(String mid) {
+		this.mid = mid;
 	}
 	public int getDay_diff() {
 		return day_diff;
@@ -94,13 +100,35 @@ public class BoardVO {
 	public void setHour_diff(int hour_diff) {
 		this.hour_diff = hour_diff;
 	}
+	public int getPreIdx() {
+		return preIdx;
+	}
+	public void setPreIdx(int preIdx) {
+		this.preIdx = preIdx;
+	}
+	public int getNextIdx() {
+		return nextIdx;
+	}
+	public void setNextIdx(int nextIdx) {
+		this.nextIdx = nextIdx;
+	}
+	public String getPreTitle() {
+		return preTitle;
+	}
+	public void setPreTitle(String preTitle) {
+		this.preTitle = preTitle;
+	}
+	public String getNextTitle() {
+		return nextTitle;
+	}
+	public void setNextTitle(String nextTitle) {
+		this.nextTitle = nextTitle;
+	}
 	@Override
 	public String toString() {
-		return "BoardVO [idx=" + idx + ", memberNickName=" + memberNickName + ", title=" + title + ", email=" + email
-				+ ", homePage=" + homePage + ", content=" + content + ", dateUpdated=" + dateUpdated + ", hostIp="
-				+ hostIp + ", views=" + views + ", likes=" + likes + ", memberMid=" + memberMid + ", day_diff="
-				+ day_diff + ", hour_diff=" + hour_diff + "]";
+		return "BoardVO [idx=" + idx + ", nickName=" + nickName + ", title=" + title + ", email=" + email + ", homePage="
+				+ homePage + ", content=" + content + ", wDate=" + wDate + ", hostIp=" + hostIp + ", readNum=" + readNum
+				+ ", good=" + good + ", mid=" + mid + ", day_diff=" + day_diff + ", hour_diff=" + hour_diff + ", preIdx="
+				+ preIdx + ", nextIdx=" + nextIdx + ", preTitle=" + preTitle + ", nextTitle=" + nextTitle + "]";
 	}
-
-	
 }

@@ -37,6 +37,11 @@
     else if(msg == "memberDelOk") msg = "정상적으로 회원탈퇴 되었습니다.";
     else if(msg == "boInputOk") msg = "게시글이 입력되었습니다.";
     else if(msg == "boInputNo") msg = "게시글 입력이 취소되었습니다.";
+    else if(msg == "boDeleteOk") msg = "게시글이 삭제되었습니다.";
+    else if(msg == "boDeleteNo") msg = "게시글 삭제가 실패했습니다.";
+    else if(msg == "userCheckNo") msg = "본인이 아닌 다른 사람의 게시글을 삭제할 수 없습니다.";
+    else if(msg == "boUpdateOk") msg = "게시글이 수정되었습니다.?";
+    else if(msg == "boUpdateNo") msg = "수정실패";
     
     alert(msg);
     if(url != "") location.href = url;

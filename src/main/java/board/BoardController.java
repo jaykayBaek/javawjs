@@ -24,19 +24,17 @@ public class BoardController extends HttpServlet {
 		// 세션이 끈겼다면 작업의 진행을 중시시키고 홈으로 전송시켜준다.
 		HttpSession session = request.getSession();
 		int level = session.getAttribute("sLevel")==null ? 99 : (int) session.getAttribute("sLevel");
+		
 		if(level >= 4) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/");
 			dispatcher.forward(request, response);
 		}
-		
 		
 		else if(com.equals("/boList")) {
 			command = new BoListCommand();
 			command.execute(request, response);
 			viewPage += "/boList.jsp";
 		}
-		
-		//게시글 쓰기
 		else if(com.equals("/boInput")) {
 			command = new BoInputCommand();
 			command.execute(request, response);
@@ -47,17 +45,52 @@ public class BoardController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "/include/message.jsp";
 		}
-		
 		else if(com.equals("/boContent")) {
 			command = new BoContentCommand();
 			command.execute(request, response);
 			viewPage += "/boContent.jsp";
 		}
-		else if(com.equals("/boLike")) {
-			command = new BoLikeCommand();
+		else if(com.equals("/boGood")) {
+			command = new BoGoodCommand();
 			command.execute(request, response);
 			return;
 		}
+		else if(com.equals("/boGoodPlusMinus")) {
+			command = new BoGoodPlusMinusCommand();
+			command.execute(request, response);
+			return;
+		}
+		else if(com.equals("/boDeleteOk")) {
+			command = new BoDeleteOkCommand();
+			command.execute(request, response);
+			viewPage = "/include/message.jsp";
+		}
+		else if(com.equals("/boUpdate")) {
+			command = new BoUpdateCommand();
+			command.execute(request, response);
+			viewPage += "/boUpdate.jsp";
+		}
+		else if(com.equals("/boUpdateOk")) {
+			command = new BoUpdateOkCommand();
+			command.execute(request, response);
+			viewPage = "/include/message.jsp";
+		}
+		else if(com.equals("/boSearch")) {
+			command = new BoSearchCommand();
+			command.execute(request, response);
+			viewPage += "/boSearch.jsp";
+		}
+		else if(com.equals("/boReplyInput")) {
+			command = new BoReplyInputCommand();
+			command.execute(request, response);
+			return;
+		}
+		else if(com.equals("/boReplyDeleteOk")) {
+			command = new BoReplyDeleteOkCommand();
+			command.execute(request, response);
+			return;
+		}
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
