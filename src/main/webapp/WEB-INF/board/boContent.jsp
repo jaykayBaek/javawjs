@@ -202,20 +202,22 @@
 <!-- 댓글 리스트보여주기 -->
 <div class="container">
 	<table class="table table-hover text-center">
-	  <tr>
-	    <th>작성자</th>
-	    <th>댓글내용</th>
+	  <tr style="background-color:#eee;">
+	    <th class="text-left">작성자</th>
+	    <th class="text-left">댓글내용</th>
 	    <th>작성일자</th>
 	    <th>접속IP</th>
 	  </tr>
 	  <c:forEach var="replyVo" items="${replyVos}">
 	    <tr>
-	      <td>${replyVo.nickName}
+	      <td class="text-left">${replyVo.nickName}
 	        <c:if test="${sMid == replyVo.mid || sLevel == 0}">
 	          (<a href="javascript:replyDelCheck(${replyVo.idx})" title="삭제하기">x</a>)
 	        </c:if>
 	      </td>
-	      <td>${replyVo.content}</td>
+	      <td class="text-left">
+	      	${fn:replace(replyVo.content, newLine, "<br/>")}
+	      </td>
 	      <td>${replyVo.wDate}</td>
 	      <td>${replyVo.hostIp}</td>
 	    </tr>
@@ -225,7 +227,7 @@
 	<%-- <form name="replyForm" method="post" action="${ctp}/boReplyInput.bo"> --%>
 	<form name="replyForm">
 	  <table class="table text-center">
-	    <tr>
+	    <tr style="bacakground-color:#eee">
 	      <td style="width:85%" class="text-left">
 	        글내용 :
 	        <textarea rows="4" name="content" id="content" class="form-control"></textarea>

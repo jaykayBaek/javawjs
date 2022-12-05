@@ -24,12 +24,13 @@ public class StudyController extends HttpServlet {
 		// 세션이 끈겼다면 작업의 진행을 중시시키고 홈으로 전송시켜준다.
 		HttpSession session = request.getSession();
 		int level = session.getAttribute("sLevel")==null ? 99 : (int) session.getAttribute("sLevel");
+		
 		if(level >= 4) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/");
 			dispatcher.forward(request, response);
 		}
 		
-		if(com.equals("/pass")) {
+		else if(com.equals("/pass")) {
 			viewPage += "/password/pass.jsp";
 		}
 		else if(com.equals("/passOk1")) {
@@ -42,8 +43,8 @@ public class StudyController extends HttpServlet {
 			command.execute(request, response);
 			viewPage += "/password/passOk2.jsp";
 		}
-		else if(com.equals("/ajax1")) {
-			viewPage += "/ajax/ajax1.jsp";
+		else if(com.equals("/ajax6")) {
+			viewPage += "/ajax/ajax6.jsp";
 		}
 		else if(com.equals("/userList")) {
 			command = new UserListCommand();
@@ -65,7 +66,43 @@ public class StudyController extends HttpServlet {
 			command.execute(request, response);
 			return;
 		}
-		
+//		else if(com.equals("/userUpdate")) {
+//			command = new UserUpdateCommand();
+//			command.execute(request, response);
+//			return;
+//		}
+		else if(com.equals("/upLoad1")) {
+			viewPage += "/pdstest/upLoad1.jsp";
+		}
+		else if(com.equals("/upLoad1Ok")) {
+			command = new UpLoadOk1Command();
+			command.execute(request, response);
+			viewPage = "/include/message.jsp";
+		}
+		else if(com.equals("/upLoad2")) {
+			viewPage += "/pdstest/upLoad2.jsp";
+		}
+		else if(com.equals("/upLoad2Ok")) {
+			command = new UpLoadOk2Command();
+			command.execute(request, response);
+			viewPage = "/include/message.jsp";
+		}
+		else if(com.equals("/upLoad3")) {
+			viewPage += "/pdstest/upLoad3.jsp";
+		}
+		else if(com.equals("/upLoad4")) {
+			viewPage += "/pdstest/upLoad4.jsp";
+		}
+		else if(com.equals("/downLoad")) {
+			command = new DownLoadCommand();
+			command.execute(request, response);
+			viewPage += "/pdstest/downLoad.jsp";
+		}
+		else if(com.equals("/fileDelete")) {
+			command = new FileDeleteCommand();
+			command.execute(request, response);
+			return;
+		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
 	}

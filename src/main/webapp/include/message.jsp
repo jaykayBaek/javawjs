@@ -42,6 +42,8 @@
     else if(msg == "userCheckNo") msg = "본인이 아닌 다른 사람의 게시글을 삭제할 수 없습니다.";
     else if(msg == "boUpdateOk") msg = "게시글이 수정되었습니다.?";
     else if(msg == "boUpdateNo") msg = "수정실패";
+    else if(msg == "upLoad1Ok") msg = "파일 업로드 성공!!";
+    else if(msg == "upLoad1No") msg = "파일 업로드 실패";
     
     alert(msg);
     if(url != "") location.href = url;

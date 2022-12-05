@@ -52,6 +52,7 @@ public class BoContentCommand implements BoardInterface {
 		if(goodIdx == null) {
 			goodIdx = new ArrayList<String>();
 		}
+		//로그인 사용자가 이미 좋아요를 클릭한 게시글이라면 빨간색으로 유지하게 한다.
 		String imsiGoodIdx = "boardGood" + idx;
 		if(goodIdx.contains(imsiGoodIdx)) {
 			session.setAttribute("sSw", "1");

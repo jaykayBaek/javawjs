@@ -43,9 +43,17 @@ public class BoardDAO {
 		ArrayList<BoardVO> vos = new ArrayList<>();
 		try {
 			// sql = "select *, datediff(now(), wDate) as day_diff from board order by idx desc limit ?,?";
+			/*
 			sql = "select *,datediff(now(), wDate) as day_diff,"
 					+ " timestampdiff(hour, wDate, now()) as hour_diff"
 					+ " from board order by idx desc limit ?,?";
+			*/
+			sql = "SELECT *, datediff(now(), wDate) as day_diff,"
+					+ " timestampdiff(hour, wDate, now()) as hour_diff,"
+					+ " (SELECT count(*) FROM boardreply WHERE boardidx=b.idx) as replyCount"
+					+ " FROM board b"
+					+ " ORDER BY idx DESC"
+					+ " limit ?, ?;";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, startIndexNo);
 			pstmt.setInt(2, pageSize);
@@ -68,6 +76,8 @@ public class BoardDAO {
 				vo.setDay_diff(rs.getInt("day_diff"));
 				vo.setHour_diff(rs.getInt("hour_diff"));
 				
+				vo.setReplyCount(rs.getInt("replyCount"));
+				
 				vos.add(vo);
 			}
 		} catch (SQLException e) {
@@ -82,15 +92,15 @@ public class BoardDAO {
 	public int setBoinputOk(BoardVO vo) {
 		int res = 0;
 		try {
-			sql = "insert into board values (default,?,?,?,?,?,default,?,default,default,?)";
+			sql = "insert into board values (default,?,?,?,?,?,?,default,?,default, default)";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, vo.getNickName());
-			pstmt.setString(2, vo.getTitle());
-			pstmt.setString(3, vo.getEmail());
-			pstmt.setString(4, vo.getHomePage());
-			pstmt.setString(5, vo.getContent());
-			pstmt.setString(6, vo.getHostIp());
-			pstmt.setString(7, vo.getMid());
+			pstmt.setString(1, vo.getMid());
+			pstmt.setString(2, vo.getNickName());
+			pstmt.setString(3, vo.getTitle());
+			pstmt.setString(4, vo.getEmail());
+			pstmt.setString(5, vo.getHomePage());
+			pstmt.setString(6, vo.getContent());
+			pstmt.setString(7, vo.getHostIp());
 			pstmt.executeUpdate();
 			res = 1;
 		} catch (SQLException e) {

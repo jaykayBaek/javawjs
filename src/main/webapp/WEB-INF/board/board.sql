@@ -107,3 +107,51 @@ SELECT *,TIMESTAMPDIFF(hour, date_format(wDate, '%Y-%m-%d %H:%i'), date_format(n
 /*이전글 다음날 체크*/
 select idx, title from board where idx < 15 order by idx desc limit 1;
 select idx, title from board where idx > 15 limit 1;
+
+/* 댓글의 수를 확인하기 위한 연습 */
+select * from boardReply order by idx desc;
+
+/* 댓글테이블(boardReply)의 board테이블의 고유번호 1291번글에 딸려있는 댓글의 수는? */
+select count(boardIdx) from boardReply where boardIdx = 1291;
+
+/*
+	댓글테이블(boardReply)의 board테이블의 고유번호 1291번글에 딸려있는 댓글의 수는?
+	원본글의 고유번호와 함께 출력
+ */
+ select boardIdx, count(boardIdx) replyCnt from boardReply where boardIdx = 1291;
+
+/*
+	댓글테이블(boardReply)의 board테이블의 고유번호 1291번글에 딸려있는 댓글의 수는?
+	원본글의 고유번호와 함께 출력alter
+    이때 원본글을 쓴 닉네임을 함께 출력하시오. 단, 닉네임은 board(원본글)테이블에서 가져와서 출력하시오.
+    
+ */
+select boardIdx, nickname, count(boardIdx) replyCnt from boardReply where boardIdx = 1291;
+
+select boardIdx, 
+	(select nickname from board where idx=1291),
+	count(boardIdx) replyCnt from boardReply where boardIdx = 1291;
+
+/* 앞의 서브 쿼리 문장을 자식의 관점이 아닌, 부모 테이블(board)관점에서 보기 */
+select mid, nickName from board where idx = 1291;
+
+/* 앞의 닉네임을 자식(댓글) 테이블(boardReply)에서 가져와서 보여준다면?? 스칼라쿼리는 리턴이 1개만 와야함 */
+select mid, 
+	(select nickname from boardreply where boardidx=1291) as nickname
+from board where idx = 1291;
+
+/* 부모 관점에서 고유번호 35번의 아이디와 현재글에 달려 있는 댓글의 개수는? */
+select mid,
+	(select count(*) from boardreply where boardidx=1291)
+from board where idx=1291;
+
+/* 부모 관점에서 board테이블의 모든 내용과 현재글에 달려 있는 댓글의 개수를 가져오되, 최근글 5개만 출력? */
+select *,
+	(select count(*) from boardreply where boardidx=b.idx) as replycnt
+from board b
+order by idx desc
+limit 5;
+
+
+ select * from boardreply;
+ select * from board;
