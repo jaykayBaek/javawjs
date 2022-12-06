@@ -17,7 +17,6 @@ public class MemberController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MemberInterface command = null;
 		String viewPage = "/WEB-INF/member";
-		
 		String uri = request.getRequestURI();
 		String com = uri.substring(uri.lastIndexOf("/"), uri.lastIndexOf("."));
 

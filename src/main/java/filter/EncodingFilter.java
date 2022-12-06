@@ -22,6 +22,4 @@ public class EncodingFilter implements Filter {
 		chain.doFilter(request, response);
 //		System.out.println("This MSG is After Filter");
 	}
-
-	
 }
