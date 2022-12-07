@@ -217,8 +217,8 @@ public class MemberDAO {
 		int res = 0;
 		try {
 			sql = "update member set nickName=?, name=?, gender=?, birthday=?,"
-					+ "tel=?, address=?, email=?, homePage=?, job=?, hobby=?,"
-					+ "photo=?, content=?, userInfor=? where mid=?";
+					+ " tel=?, address=?, email=?, homePage=?, job=?, hobby=?,"
+					+ " photo=?, content=?, userInfor=? where mid=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getNickName());
 			pstmt.setString(2, vo.getName());

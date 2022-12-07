@@ -177,5 +177,76 @@ public class PdsDAO {
 		return res;
 	}
 
+	// 다운로드수 증가하기
+	public void setPdsDownNum(int idx) {
+		try {
+			sql = "update pds set downNum = downNum + 1 where idx = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("SQL 에러 : " + e.getMessage());
+		} finally {
+			getConn.pstmtClose();
+		}
+	}
+
+	public ArrayList<PdsVO> getPdsSearch(String search) {
+		ArrayList<PdsVO> vos = new ArrayList<>();
+		try {
+			sql = "SELECT *,datediff(now(), fDate) as day_diff, "
+					+ "timestampdiff(hour, fDate, now()) as hour_diff "
+					+ "FROM pds where title like ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+search+"%");
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				vo = new PdsVO();
+				vo.setIdx(rs.getInt("idx"));
+				vo.setMid(rs.getString("mid"));
+				vo.setNickName(rs.getString("nickName"));
+				vo.setfName(rs.getString("fName"));
+				vo.setfSName(rs.getString("fSName"));
+				vo.setfSize(rs.getInt("fSize"));
+				vo.setTitle(rs.getString("title"));
+				vo.setPart(rs.getString("part"));
+				vo.setPwd(rs.getString("pwd"));
+				vo.setfDate(rs.getString("fDate"));
+				vo.setDownNum(rs.getInt("downNum"));
+				vo.setOpenSw(rs.getString("openSw"));
+				vo.setContent(rs.getString("content"));
+				vo.setHostIp(rs.getString("hostIp"));
+				
+				vo.setDay_diff(rs.getInt("day_diff"));
+				vo.setHour_diff(rs.getInt("hour_diff"));
+				
+				vos.add(vo);
+			}
+		} catch (SQLException e) {
+			System.out.println("11111SQL 에러 : " + e.getMessage());
+		} finally {
+			getConn.rsClose();
+		}
+		return vos;
+	}
+	
+	public int searchRecCnt(String search) {
+		int totRecCnt = 0;
+		try {
+			sql = "select count(*) as cnt from pds where title like ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+search+"%");
+			rs = pstmt.executeQuery();
+			
+			rs.next();
+			totRecCnt = rs.getInt("cnt");
+		} catch (SQLException e) {
+			System.out.println("22222SQL 에러 : " + e.getMessage());
+		} finally {
+			getConn.rsClose();
+		}
+		return totRecCnt;
+	}
 	
 }

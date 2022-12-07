@@ -20,6 +20,7 @@ public class DownLoadCommand implements StudyInterface {
 		}
 		
 		request.setAttribute("files", files);
+		
 	}
 
 }

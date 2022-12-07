@@ -53,7 +53,11 @@
     <c:forEach var="file" items="${files}" varStatus="st">
       <tr>
         <td>${st.count}</td>
-        <td><a href="${ctp}/data/pdstest/${file}" download="${file}">${file}</a></td>
+        <td>
+        	<a href="${ctp}/data/pdstest/${file}" download="${file}">${file}</a> <br/>
+        	<a href="${ctp}/javaDown.st?file=${file}" class="h5">자바다운</a>
+        
+        </td>
         <td>
           <c:set var="fNameArr" value="${fn:split(file,'.')}"/>
           <c:set var="extName" value="${fn:toLowerCase(fNameArr[fn:length(fNameArr)-1])}"/>
